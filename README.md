@@ -1,6 +1,6 @@
-# Chat with Websites
+# Chat with Websites:robot:
 
-A chatbot that will parse website information and anwser questions only
+A chatbot that uses Mistral 7B to parse website information and anwser questions only
 based of the info from those websites. However, you can modify 
 `after_rag_template` to change this.
 
