@@ -10,14 +10,14 @@ The set up instructions are also copied below for convenience
 
 ## Demo
 
-### 1. Input Info
+### 1. Input Info :mag_right:
 <img width="556" alt="image" src="https://github.com/Aabha-J/Website-Chatbot/assets/121515351/03ca8463-204c-4409-b94e-a73b293fd801">
 
-### 2. Wait for Results
+### 2. Wait for Results :hourglass:
 <img width="562" alt="image" src="https://github.com/Aabha-J/Website-Chatbot/assets/121515351/8920dc7c-9a92-4e8f-a746-cde0a6159937">
 
 
-### 3. Get Results
+### 3. Get Results :tada:
 <img width="565" alt="image" src="https://github.com/Aabha-J/Website-Chatbot/assets/121515351/49864d24-bafa-4001-a875-1a93dbb4219a">
 
 
