@@ -1,11 +1,12 @@
 # Chat with Websites
 
 A chatbot that will parse website information and anwser questions only
-based of the info from those websites. 
+based of the info from those websites. However, you can modify 
+`after_rag_template` to change this.
 
 To run on your local computer clone the repo or download the files and 
-follow the instructions in the [setup.txt files](https://github.com/Aabha-J/Website-Chatbot/blob/802b85ab524a88204644a9f52a043d7504f82501/setup.txt). The set up instructions are
-also copied below for convenience
+follow the instructions in [setup.txt](https://github.com/Aabha-J/Website-Chatbot/blob/802b85ab524a88204644a9f52a043d7504f82501/setup.txt). 
+The set up instructions are also copied below for convenience
 
 ## Demo
 
@@ -14,8 +15,10 @@ also copied below for convenience
 
 
 ### 2. Get Results
+<img width="565" alt="image" src="https://github.com/Aabha-J/Website-Chatbot/assets/121515351/49864d24-bafa-4001-a875-1a93dbb4219a">
 
 
+Note: Depedning on your processor the speed will vary
 ## Set Up
 
   1. Create a virtual enviorment (Optional but reccomended)
