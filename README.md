@@ -1,4 +1,4 @@
-# Chat with Websites:robot:
+# Chat with Websites :robot:
 
 A chatbot that uses Mistral 7B to parse website information and anwser questions only
 based of the info from those websites. However, you can modify 
