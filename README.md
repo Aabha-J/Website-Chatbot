@@ -24,8 +24,8 @@ Note: Depedning on your processor the speed will vary
   1. Create a virtual enviorment (Optional but reccomended)
       In the command terminal (Don't use powershell)
      1. python -m venv name
-     2.   source name/bin/activate -MacOS
-          .\name\Scripts\activate  -Windows
+     2. MAC: source name/bin/activate
+     3. Windows: .\name\Scripts\activate  
   
   
   2. Install these packages with pip in your virtual enviorment
