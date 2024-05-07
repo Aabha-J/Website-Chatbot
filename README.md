@@ -23,21 +23,26 @@ Note: Depedning on your processor the speed will vary
 
   1. Create a virtual enviorment (Optional but reccomended)
       In the command terminal (Don't use powershell)
-      a. python -m venv name
-      b.  source name/bin/activate -MacOS
+     1. python -m venv name
+     2.   source name/bin/activate -MacOS
           .\name\Scripts\activate  -Windows
   
   
   2. Install these packages with pip in your virtual enviorment
   
       pip install langchain
+     
       pip install chromadb tiktoken
+     
       pip install streamlit
+     
       pip install beautifulsoup4
   
   
   3. Download ollama from https://ollama.com/
   
       Type this into your command terminal to get acess to these models
+     
       ollama pull mistral
+     
       ollama pull nomic-embed-text
