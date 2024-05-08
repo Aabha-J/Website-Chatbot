@@ -18,3 +18,5 @@
     Type this into your command terminal to get acess to these models
     ollama pull mistral
     ollama pull nomic-embed-text
+
+4. streamlit run app.py
