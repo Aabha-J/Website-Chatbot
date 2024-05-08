@@ -10,49 +10,46 @@ from langchain_community.embeddings.ollama import OllamaEmbeddings
 
 CHUNCK_SIZE = 7500
 OVERLAP = 100
+MODEL_NAME = "mistral"
 
-def process_input(urls, question):
-    local_model = Ollama(model = "mistral")
 
-    #Geting info from url
+def load_documents_from_urls(urls):
     urls_list = urls.split("\n")
     docs = [WebBaseLoader(url).load() for url in urls_list]
-    docs_list = [item for sublist in docs for item in sublist] 
+    return [item for sublist in docs for item in sublist]
 
-    # docs_list = [] 
+def create_doc_splits(docs_list, chunk_size, overlap):
+    text_splitter = CharacterTextSplitter.from_tiktoken_encoder(chunk_size=chunk_size, chunk_overlap=overlap)
+    return text_splitter.split_documents(docs_list)
 
-    # for sublist in docs:
-    #     for item in sublist:
-    #         docs_list.append(item)
-
-
-    #Making chunks
-    text_splitter = CharacterTextSplitter.from_tiktoken_encoder(chunk_size=CHUNCK_SIZE, chunk_overlap=OVERLAP)
-    doc_splits = text_splitter.split_documents(docs_list)
-
-    vectorstore = Chroma.from_documents(
+def initialize_vectorstore(doc_splits):
+    return Chroma.from_documents(
         documents=doc_splits,
         collection_name="rag-chroma",
-        embedding=embeddings.ollama.OllamaEmbeddings(model='nomic-embed-text'),
+        embedding=OllamaEmbeddings(model='nomic-embed-text'),
     )
-    retriever = vectorstore.as_retriever()
 
-    #Perform RAG
+def perform_rag(retriever, question, local_model):
     after_rag_template = """Answer the question based only on the following context:
     {context}
     Question: {question}
     """
-
     after_rag_prompt = ChatPromptTemplate.from_template(after_rag_template)
-
     after_rag_chain = (
-        {"context":retriever, "question":RunnablePassthrough()}
+        {"context": retriever, "question": RunnablePassthrough()}
         | after_rag_prompt
         | local_model
         | StrOutputParser()
     )
-
     return after_rag_chain.invoke(question)
+
+def process_input(urls, question):
+    local_model = Ollama(model=MODEL_NAME)
+    docs_list = load_documents_from_urls(urls)
+    doc_splits = create_doc_splits(docs_list, chunk_size=CHUNCK_SIZE, overlap=OVERLAP)
+    vectorstore = initialize_vectorstore(doc_splits)
+    retriever = vectorstore.as_retriever()
+    return perform_rag(retriever, question, local_model)
 
 
         
